@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+header nav {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0.2%;
+}
+
+.inf-logo h1 {
+  font-size: 160%;
+  font-weight: bold;
+  justify-content: left;
+}
+.inf-logo h1 a {
+  color: white;
+}
+
+.inf-logo a {
+  text-decoration: none;
+  color: white;
+}
+
+.inf-nav ul {
+  display: flex;
+  gap: 2%;
+  justify-content: center;
+  list-style: none;
+}
+
+.inf-nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 96%;
+}
+
+.inf-nav a:hover {
+  color: #007bff;
+}
+
+.inf-nav-2 ul {
+  display: flex;
+  justify-content: right;
+  right: 5%;
+  list-style: none;
+}
+
+.inf-nav-2 a {
+  color: white;
+  font-size: 108%;
+}
+
+.inf-nav-2 a:hover {
+  color: #007bff;
+}
+
+#infosys {
+  background-image: url(/img/iga-swiatek-leadimg.webp);
+}/*# sourceMappingURL=style.css.map */
