@@ -238,4 +238,163 @@ footer {
     .header-icons {
         display: none; /* Hide icons on very small screens */
     }
+
+}
+
+/* Third Section - Hero-1 Styling */
+
+/* Main Hero Section */
+.hero-1 {
+    background-color: #0072c6;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 20% 3rem 2rem; /* Right padding of 20% */
+    height: 100vh;
+    position: relative;
+    gap: 2rem;
+    text-align: right; /* Align all text to the right */
+}
+
+/* Main Content */
+.hero-content-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 2rem;
+    text-align: right;
+}
+
+.hero-content-1 h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.hero-content-1 .padd {
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 1.5rem;
+    padding-right: 27%;
+}
+
+/* Explore Button */
+.explore-btn-1 {
+    display: inline-block;
+    padding: 1.5% 6%;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    text-align: center;
+    align-self: center;
+  
+}
+
+.explore-btn-1:hover {
+    background: #000;
+}
+
+/* Cards Section */
+.cards {
+    display: flex;
+    justify-content: center;
+    padding-left:60% ; /* Position the cards side-by-side with space between */
+    gap: 2rem; /* Space between the cards */
+    width: 100%; /* Ensure it spans the full width of the container */
+}
+
+.card-1 {
+    
+  
+    flex: 0 1 48%; /* Prevent cards from shrinking, keep them at 48% width */
+    
+    border-radius: 8px;
+    padding: 1rem;
+    color: white;
+    transition: transform 0.3s;
+    text-align: center; /* Align text inside the card to the right */
+}
+
+.card-1:hover {
+    transform: scale(1.05);
+}
+
+.card-1 h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: bolder;
+}
+
+.card-1 p {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.card-1 a {
+    color: white;
+    text-decoration: underline;
+    font-size: 0.9rem;
+}
+
+/* Responsive Adjustments for Hero-1 */
+@media (max-width: 1024px) {
+    .hero-1 {
+        padding: 2rem 10% 2rem 2rem; /* Reduce right padding */
+    }
+
+    .cards {
+        flex-wrap: wrap; /* Stack cards on smaller screens */
+        justify-content: center; /* Center cards */
+    }
+
+    .card-1 {
+        max-width: 45%; /* Make cards a bit larger on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content-1 h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content-1 .padd {
+        font-size: 1rem;
+    }
+
+    .explore-btn-1 {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .card-1 {
+        max-width: 100%; /* Stack cards on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-1 {
+        padding: 2rem;
+    }
+
+    .hero-content-1 h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-content-1 .padd {
+        font-size: 0.9rem;
+    }
+
+    .explore-btn-1 {
+        padding: 0.5rem 1rem;
+    }
+
+    .cards {
+        padding-left: 0; /* Remove left padding on small screens */
+        justify-content: center;
+    }
 }
