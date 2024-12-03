@@ -538,54 +538,254 @@ header nav ul li a:hover {
   }
   
 
+// about us
 
-//   
-
-.about-us {
-    .container{
-      width:1200px;
-    }
-}
-
-.about-us h2 {
+  .about-us {
     text-align: center;
-    font-size: 40px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-.about-us p {
-    text-align: center;
-    margin-bottom: 50px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.stats {
-    display: flex;
-    justify-content: space-around;
-}
-
-.stat {
-    text-align: center;
-}
-
-.stat h3 {
+    padding: 40px 20px;
+    background-color: white;
+  }
+  
+  .about-us h2 {
     font-size: 36px;
     font-weight: bold;
-    font-size: 50px;
-}
+    margin-bottom: 10px;
+    color: black;
+  }
+  
+  .about-us p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 40px;
+  }
+  
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .stat {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .stat h3 {
+    font-size: 48px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+  }
+  
+  .stat p {
+    font-size: 16px;
+    color: #666;
+    margin: 10px 0 0;
+  }
+  
+  hr {
+    width: 100px;
+    margin: 20px auto;
+    border: 0;
+    border-top: 2px solid #ccc;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .about-us h2 {
+      font-size: 28px;
+    }
+  
+    .about-us p {
+      font-size: 16px;
+    }
+  
+    .stat h3 {
+      font-size: 36px;
+    }
+  
+    .stat p {
+      font-size: 14px;
+    }
+  }
+// end of about us 
 
-.stat p {
-    margin-top: 10px;
-    
+// purposes
+
+.container-my{
+  position: relative;
+  right: 5%;
+    background-color: white;
+    width: 70%;
+    border: 1px solid blue;
+    padding: 50px;
+    margin-left: 180px;
+    margin-right: 30px;
+    border-top-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    transition: all 2s;
+  }
+  .container-my h1{
+    color: #000;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  .container-my p{
+    color: #000;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  .container-my:hover{
+    background-color: #ccc;
+  }
+  /* end-purpose-section */
+
+//   investors
+
+
+/* Investor Section */
+.investor-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 40px 20px;
+    gap: 30px;
+    background-color: #fff;
+  }
+  
+  .head-info h1 {
+    color: #000;
+    font-size: 36px;
+    text-align: center;
+    margin: 10px 0;
+  }
+  
+  .head-info p {
+    font-size: 28px;
+    text-align: center;
+    color: #666;
+    margin: 10px 0;
+  }
+  
+  .image-container {
+    flex: 1 1 60%;
+    text-align: center;
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+  }
+  
+  .report-label {
+    position: relative;
+    bottom: 10%;
+    right: 23%;
+    font-weight: bolder;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    // margin-top: 10px;
+  }
+  
+  .content-container {
+    flex: 1 1 35%;
+    padding: 80px;
+    background-color: transparent;
+    border-radius: 8px;
+    // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .content-container h3 {
+    color: #000;
+    font-weight:9000;
+    font-size: 34px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .content-container hr {
+    border: 0;
+    border-top: 2px solid #ddd;
+    margin: 15px 0;
+  }
+  
+  .content-item h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .content-item p {
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+  }
+  
+  a {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .investor-section {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .image-container,
+    .content-container {
+      flex: 1 1 100%;
+      text-align: center;
+    }
+  
+    .content-container {
+      margin-top: 20px;
+    }
+  
+    .head-info h1 {
+      font-size: 28px;
+    }
+  
+    .head-info p {
+      font-size: 16px;
+    }
+  }
+//   cxarres
+.divdivdiv{
+    background-color: white;
 }
-.container-4 p{
-    font-size: 20px;
-    font-family: sans-serif;
-  }
-  .container-4 h2{
-    font-size:50px;
-  }
-/* end about-us section */
+.divdiv h1{
+    text-align: center;
+    font-weight: bold;
+    font-size: 28px;
+    color: #000;
+
+}
+.divdiv p{
+    color:#333;
+    font-size: 18px;
+    font-weight: 100;
+    text-align: center;
+}
+.divp{
+    color: white;
+    position: relative;
+    bottom: 5%;
+    right: 45%;
+}
   
 /* Footer */
 footer {
@@ -681,5 +881,81 @@ footer {
     .explore-btn,
     .explore-btn-1 {
         padding: 0.5rem 1rem;
+    }
+}
+@media (max-width: 576px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .hero-content, 
+    .content-1, 
+    .hero-content-1 {
+        padding: 5%;
+        text-align: center;
+    }
+
+    .hero-content h1, 
+    .content-1 h1, 
+    .hero-content-1 h1 {
+        font-size: 1.8rem;
+    }
+
+    .container, 
+    .cards, 
+    .case-studies-1 {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .grid-container {
+        grid-template-areas:
+            "experience"
+            "insight"
+            "innovate"
+            "accelerate"
+            "assure";
+        grid-template-columns: 1fr;
+    }
+
+    footer .row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .footer-col {
+        text-align: center;
+    }
+}
+
+@media (max-width: 320px) {
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    .explore-btn, 
+    .explore-btn-1, 
+    .explore-btn-3 {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .stat h3 {
+        font-size: 24px;
+    }
+
+    .stat p {
+        font-size: 14px;
     }
 }
