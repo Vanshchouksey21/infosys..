@@ -1,0 +1,253 @@
+(window.Dmdbase_CDC = {}),
+  (window.Dmdbase_CDC = {
+    cookieName: "dmdbase_cdc",
+    dimensions: {},
+    logging: !1,
+    enableTNT: !1,
+    enableAnalytics: !0,
+    DB_DEFAULT_VALUE: "ISP Visitor",
+    NOT_IN_AWLIST: "Not In List",
+    NOT_ASSIGNED_AWLIST_VALUE: "In List No Value",
+    CompanyProfile: {},
+    targetAttributes: [
+      "demandbase_sid",
+      "company_name",
+      "industry",
+      "sub_industry",
+      "employee_range",
+      "revenue_range",
+      "audience",
+      "audience_segment",
+      "state",
+      "country_name",
+      "marketing_alias",
+      "b2b",
+      "b2c,",
+      "web_site",
+      "watch_list_account_type",
+      "watch_list_account_status",
+    ],
+    useStorage: !0,
+    useCookie: !0,
+    targetReady: !1,
+    init: function () {
+      "true" === this.cdc_getParamByName("cdc_debug") && (this.logging = !0);
+    },
+    setupDimensions: function () {
+      (this.dimensions.set1 = {
+        company_id: 10,
+        company_name: 40,
+        industry: 40,
+        sub_industry: 40,
+        employee_range: 30,
+        revenue_range: 10,
+        audience: 30,
+        audience_segment: 30,
+      }),
+        (this.dimensions.set2 = {
+          marketing_alias: 35,
+          city: 50,
+          state: 5,
+          country_name: 20,
+          watch_list_account_type: 30,
+          watch_list_account_status: 30,
+          watch_list_source_name_grouping: 30,
+          watch_list_isp_service: 30,
+        }),
+        (this.dimensions.set3 = {
+          watch_list_is_sc: 30,
+          watch_list_is_sp: 30,
+          watch_list_is_abm: 30,
+          watch_list_is_champion: 30,
+          watch_list_vertical: 30,
+          watch_list_is_industry: 30,
+          watch_list_is_domain: 30,
+          watch_list_duns_number: 30,
+        }),
+        (this.dimensions.set4 = {
+          watch_list_account_360: 30,
+          watch_list_region: 30,
+          watch_list_segment: 70,
+          watch_list_is_abm_lite: 20,
+          watch_list_is_nao: 20,
+          parent_id: 20,
+          parent_name: 20,
+          ultimate_parent_id: 20,
+        }),
+        (this.dimensions.set5 = {
+          ultimate_parent_name: 30,
+          watch_list_dcf__14: 70,
+          placeholder13: 20,
+          placeholder14: 20,
+          placeholder15: 20,
+          placeholder16: 20,
+          placeholder17: 20,
+          placeholder18: 20,
+        });
+    },
+    callback: function (t) {
+      if (t)
+        try {
+          window.Dmdbase_CDC.init(),
+            (t = this.flatten(t)),
+            (window.Dmdbase_CDC.CompanyProfile = t),
+            this.enableAnalytics &&
+              this.setAnalytics(window.Dmdbase_CDC.CompanyProfile),
+            this.enableTNT && this.setMbox(window.Dmdbase_CDC.CompanyProfile);
+        } catch (e) {
+          window.console && this.logging && console.log("DB _ " + e.message);
+        }
+    },
+    loadAnalytics: function () {
+      this.setAnalytics(window.Dmdbase_CDC.CompanyProfile);
+    },
+    setAnalytics: function (t) {
+      try {
+        this.setupDimensions(),
+          window.sessionStorage &&
+            !sessionStorage.getItem("s_dmdbase") &&
+            this.isCookieSet(this.cookieName) &&
+            this.storeSessionData(t),
+          this.isCookieSet(this.cookieName) || this.storeSessionData(t);
+      } catch (e) {
+        window.console && this.logging && console.log("DB _ " + e.message);
+      }
+    },
+    storeSessionData: function (t) {
+      var e = this.buildDelimitedStrings(":", t);
+      if (
+        (this.isCookieSet(this.cookieName) ||
+          this.saveToCookie(this.cookieName, "DBSET", 1),
+        (window.Dmdbase_CDC.contextData = e),
+        window.sessionStorage && this.useStorage)
+      ) {
+        sessionStorage.setItem("s_dmdbase", window.Dmdbase_CDC.contextData[0]);
+        for (var i = 1; i < window.Dmdbase_CDC.contextData.length; i++)
+          sessionStorage.setItem(
+            "s_dmdbase_custom" + i,
+            window.Dmdbase_CDC.contextData[i]
+          );
+      }
+    },
+    setMbox: function (t) {
+      try {
+        null !== window.TNT &&
+          "object" == typeof window.TNT &&
+          this.set_mbox_variables(t);
+      } catch (e) {
+        window.console && this.logging && console.log("DB _ " + e.message);
+      }
+    },
+    flatten: function (t) {
+      for (var e in t)
+        if ("object" == typeof t[e] && null !== t[e] && t.hasOwnProperty(e)) {
+          for (var i in t[e])
+            t[e].hasOwnProperty(i) && (t[e + "_" + i] = t[e][i]);
+          delete t[e];
+        }
+      return t;
+    },
+    saveToCookie: function (t, e) {
+      var i = new Date();
+      i.setTime(i.getTime() + 18e5);
+      var s = "; expires=" + i.toGMTString(),
+        a = document.location.href,
+        n = "; domain=" + this.getDomain(a);
+      document.cookie =
+        t + "=" + encodeURIComponent(e) + s + n + "; path=/; Secure";
+    },
+    getCookieByName: function (t) {
+      t += "=";
+      for (var e = document.cookie.split(";"), i = 0; i < e.length; i++) {
+        for (var s = e[i]; " " == s.charAt(0); ) s = s.substring(1);
+        if (-1 != s.indexOf(t))
+          return decodeURIComponent(s.substring(t.length, s.length));
+      }
+      return "";
+    },
+    getHostName: function (t) {
+      var e = t.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);
+      return null != e &&
+        e.length > 2 &&
+        "string" == typeof e[2] &&
+        e[2].length > 0
+        ? e[2]
+        : null;
+    },
+    getDomain: function (t) {
+      var e = this.getHostName(t),
+        i = e;
+      if (null != e) {
+        var s = e.split(".").reverse();
+        null != s &&
+          s.length > 1 &&
+          ((i = "." + s[1] + "." + s[0]),
+          -1 != e.toLowerCase().indexOf(".co.uk") &&
+            s.length > 2 &&
+            (i = "." + s[2] + "." + i));
+      }
+      return i;
+    },
+    isCookieSet: function (t) {
+      var e = this.getCookieByName(t);
+      return e && "undefined" != e;
+    },
+    buildDelimitedStrings: function (t, e) {
+      var i = this.dimensions,
+        s = [];
+      for (var a in i)
+        if (i.hasOwnProperty(a)) {
+          var n = "";
+          for (var o in i[a])
+            if (i[a].hasOwnProperty(o)) {
+              var r = "";
+              r =
+                -1 != o.indexOf("watch_list") &&
+                "Detailed" === e.information_level &&
+                e.hasOwnProperty(o)
+                  ? this.truthy(e[o], this.NOT_ASSIGNED_AWLIST_VALUE)
+                  : -1 == o.indexOf("watch_list") ||
+                    "Detailed" !== e.information_level ||
+                    e.hasOwnProperty(o)
+                  ? this.truthy(e[o], this.DB_DEFAULT_VALUE)
+                  : this.truthy(e[o], this.NOT_IN_AWLIST);
+              var c = i[a][o];
+              n += (r = this.resizeStr(r, c)) + t;
+            }
+          (n = n.substring(0, n.length - 1)),
+            (n = this.resizeStr(n, 255)),
+            s.push(n);
+        }
+      return s;
+    },
+    resizeStr: function (t, e) {
+      return t.length > e && (t = t.substring(0, e)), t;
+    },
+    truthy: function (t, e) {
+      return t || (!1 === t ? t : e);
+    },
+    cdc_getParamByName: function (t) {
+      var e = RegExp(
+        "[\\?&]" +
+          (t = t.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]")) +
+          "=([^&#]*)"
+      ).exec(location.search);
+      return null === e ? "" : decodeURIComponent(e[1].replace(/\+/g, " "));
+    },
+    set_mbox_variables: function (t) {
+      try {
+        var e,
+          i = "";
+        for (var s in t)
+          if (t.hasOwnProperty(s) && -1 != this.targetAttributes.indexOf(s)) {
+            var a = "profile." + s + "=" + t[s] + ",";
+            i += a;
+          }
+        (i = i.split(",")),
+          "undefined" != typeof mboxFactoryDefault &&
+            (e = mboxFactoryDefault.getUrlBuilder()).addParameters(i);
+      } catch (n) {
+        console.log(n);
+      }
+    },
+  });

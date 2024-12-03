@@ -80,12 +80,14 @@ header nav ul li a:hover {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(90deg, #121212, #1e1e1e);
+  background-image: url(/img/ft-money-machine-lead.avif);
+  background-position: center;
+  height: 100vh;
   text-align: left;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 10%;
+  align-items: flex-start;
+  padding: 15%;
 }
 
 .hero-content {
@@ -331,6 +333,8 @@ header nav ul li a:hover {
 
 .infosys-hero {
   background-image: url(/img/launches-new-sonic-identity-lead.avif);
+  background-repeat: no-repeat;
+  background-size: cover;
   justify-content: center;
   text-align: center;
 }
@@ -353,6 +357,9 @@ header nav ul li a:hover {
 .button {
   text-align: center;
   margin-top: 10px; /* Fine-tuning the vertical spacing */
+  position: relative;
+  top: 80%;
+  right: 50%;
 }
 
 .button a {
@@ -372,6 +379,182 @@ header nav ul li a:hover {
   color: white;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-areas: "experience experience" "insight innovate" "accelerate assure";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2fr 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  max-width: 1200px;
+}
+
+.grid-item {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+
+.grid-item .overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.experience {
+  grid-area: experience;
+}
+
+.insight {
+  grid-area: insight;
+}
+
+.innovate {
+  grid-area: innovate;
+}
+
+.accelerate {
+  grid-area: accelerate;
+}
+
+.assure {
+  grid-area: assure;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-areas: "experience" "insight" "innovate" "accelerate" "assure";
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 1fr);
+  }
+}
+.grid-container {
+  display: grid;
+  grid-template-areas: "experience experience" "insight innovate" "accelerate assure";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 10px;
+  padding: 10px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid-item {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+
+.grid-item .overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.experience {
+  grid-area: experience;
+}
+
+.insight {
+  grid-area: insight;
+}
+
+.innovate {
+  grid-area: innovate;
+}
+
+.accelerate {
+  grid-area: accelerate;
+}
+
+.assure {
+  grid-area: assure;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-areas: "experience" "insight" "innovate" "accelerate" "assure";
+    grid-template-columns: 1fr;
+  }
+}
+.about-us .container {
+  width: 1200px;
+}
+
+.about-us h2 {
+  text-align: center;
+  font-size: 40px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.about-us p {
+  text-align: center;
+  margin-bottom: 50px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat h3 {
+  font-size: 36px;
+  font-weight: bold;
+  font-size: 50px;
+}
+
+.stat p {
+  margin-top: 10px;
+}
+
+.container-4 p {
+  font-size: 20px;
+  font-family: sans-serif;
+}
+
+.container-4 h2 {
+  font-size: 50px;
+}
+
+/* end about-us section */
 /* Footer */
 footer {
   background-color: #000000;
