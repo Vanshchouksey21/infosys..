@@ -42,7 +42,7 @@ header {
   padding: 1% 5%;
   position: fixed;
   top: 0;
-  background-color: #121212;
+  background-color: transparent;
   z-index: 1000;
 }
 
