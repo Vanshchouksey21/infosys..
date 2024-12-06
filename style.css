@@ -961,10 +961,11 @@ a:hover {
   }
   .image-container {
     flex: 1 1 100%;
-    max-width: 100%;
+    max-width: 50%;
   }
   .content-container {
     flex: 1 1 100%;
+    max-width: 50%;
     padding: 20px;
     text-align: center;
   }
